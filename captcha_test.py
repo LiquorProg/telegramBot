@@ -82,7 +82,7 @@ class BotHandler:
         # Обработка капчи от бота 'shieldy_bot'
         if bot_username == 'shieldy_bot':
             message_text = event.message.text
-            print(f"Received message from shieldy_bot: {message_text}")
+            print(f"Полученное сообщение от shieldy_bot: {message_text}")
 
             # Поиск математической операции вида (x+y) в сообщении
             pattern = r'\(\s*(\d+)\s*\+\s*(\d+)\s*\)'
@@ -93,16 +93,16 @@ class BotHandler:
                 y = int(match.group(2))
 
                 result = x + y
-                print(f"Evaluated result: {result}")
+                print(f"Результат вычисления: {result}")
 
                 # Задержка перед отправкой ответа (2-4 секунды)
                 await asyncio.sleep(3)
 
                 # Отправка результата обратно боту shieldy_bot
                 await event.respond(str(result))
-                print("Response sent.")
+                print("Ответ отправлен.")
             else:
-                print("Math operation not found in the message.")
+                print("Математической операции не было найдено.")
 
     async def handle_unknown_bot(self, event, bot_username):
         # Обработка заданий от неизвестных ботов
